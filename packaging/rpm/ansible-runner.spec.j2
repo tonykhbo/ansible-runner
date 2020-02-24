@@ -23,13 +23,13 @@ BuildArch:      noarch
 %if %{with python2}
 BuildRequires: python-rpm-macros
 BuildRequires: python2-setuptools
-Requires:      python2-%{pypi_name}
+Requires:      python2-%{pypi_name}={{ version }}
 %endif
 
 %if %{with python3}
 BuildRequires: python3
 BuildRequires: python3-setuptools
-Requires:      python3-%{pypi_name}
+Requires:      python3-%{pypi_name}={{ version }}
 %endif
 
 %description
