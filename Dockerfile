@@ -15,6 +15,11 @@ RUN dnf install -y epel-release && \
     chmod +x /bin/tini /bin/entrypoint && \
     rm -rf /var/cache/dnf
 
+RUN curl -s -o /tmp/oc.tar.gz https://mirror.openshift.com/pub/openshift-v4/clients/oc/4.3/linux/oc.tar.gz && \
+    tar -C /usr/local/bin -zxf /tmp/oc.tar.gz oc && \
+    ln -s /usr/local/bin/oc /usr/local/bin/kubectl && \
+    rm /tmp/oc.tar.gz
+
 # In OpenShift, container will run as a random uid number and gid 0. Make sure things
 # are writeable by the root group.
 RUN mkdir -p /runner/inventory /runner/project /runner/artifacts /runner/.ansible/tmp && \
