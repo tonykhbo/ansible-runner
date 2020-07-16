@@ -13,7 +13,7 @@ RUN dnf install -y epel-release && \
 #   dnf install -y ansible-runner python3-pip sudo rsync openssh-clients sshpass glibc-langpack-en && \ 
 #    alternatives --set python /usr/bin/python3 && \
 #    pip3 install ansible==2.7.10 pysphere && \
-    pip install ansible==2.7.10 pysphere && \
+    pip2 install ansible==2.7.10 pysphere && \
     chmod +x /bin/tini /bin/entrypoint && \
     rm -rf /var/cache/dnf
 
