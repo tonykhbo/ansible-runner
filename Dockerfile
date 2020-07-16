@@ -4,10 +4,10 @@ ADD https://github.com/krallin/tini/releases/download/v0.14.0/tini /tini
 
 # Install Ansible Runner
 RUN yum -y install epel-release  && \
-    yum -y install ansible python-psutil python-pip python-docutils bubblewrap bzip2 python-crypto openssh openssh-clients git && \
+    yum -y install python-psutil python-pip python-docutils bubblewrap bzip2 python-crypto openssh openssh-clients git && \
     localedef -c -i en_US -f UTF-8 en_US.UTF-8 && \
     chmod +x /tini && \
-    pip install --no-cache-dir wheel pexpect psutil python-daemon && \
+    pip install --no-cache-dir ansible==2.7.10 wheel pexpect psutil python-daemon pysphere && \
     rm -rf /var/cache/yum
 
 ENV LANG=en_US.UTF-8 \
