@@ -9,7 +9,7 @@ ADD demo/inventory /runner/inventory
 # Install Ansible Runner
 RUN yum-config-manager --add-repo https://releases.ansible.com/ansible-runner/ansible-runner.el7.repo && \
 	yum install -y epel-release && \
-	yum install -y python-pip ansible-runner bubblewrap sudo rsync openssh-clients sshpass python-netaddr pywinrm==0.4.1 requests==2.6.0 && \
+	yum install -y python-pip ansible-runner bubblewrap sudo rsync openssh-clients sshpass python-netaddr pywinrm && \
 	pip install --no-cache-dir ansible==2.7.10 pysphere && \
 	localedef -c -i en_US -f UTF-8 en_US.UTF-8 && \
 	chmod +x /bin/tini /bin/entrypoint && rm -rf /var/cache/yum
